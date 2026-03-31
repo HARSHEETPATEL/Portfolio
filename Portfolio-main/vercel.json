@@ -1,3 +1,7 @@
 {
-  "outputDirectory": "Portfolio"
+  "version": 2,
+  "outputDirectory": "Portfolio",
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" }
+  ]
 }
