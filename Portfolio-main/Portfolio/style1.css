@@ -1,0 +1,472 @@
+/* ========================================
+   Enhanced Glass & Gradient Effects
+   ======================================== */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-effect:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 12px 48px rgba(102, 126, 234, 0.2);
+}
+
+.gradient-bg {
+    background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #667eea);
+    background-size: 600% 600%;
+    animation: gradientX 15s ease infinite;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #f093fb 50%, #667eea 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 5s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+}
+
+/* ========================================
+   Particles.js Container
+   ======================================== */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: auto;
+}
+
+#particles-js canvas {
+    display: block;
+}
+
+/* ========================================
+   Enhanced Navigation
+   ======================================== */
+.navbar-container {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    margin: 10px auto;
+    max-width: 90%;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-container:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 12px 48px rgba(102, 126, 234, 0.2);
+}
+
+.nav-link {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.nav-link:hover::before {
+    left: 100%;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -2px;
+    left: 50%;
+    background: linear-gradient(90deg, #667eea, #f093fb, #667eea);
+    background-size: 200% auto;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%);
+    border-radius: 2px;
+    animation: gradientShift 3s ease infinite;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.6);
+}
+
+/* ========================================
+   Enhanced Cards with 3D Effects
+   ======================================== */
+.card-hover {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+}
+
+.card-hover:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 
+        0 20px 60px rgba(102, 126, 234, 0.3),
+        0 30px 80px rgba(118, 75, 162, 0.2),
+        0 0 40px rgba(240, 147, 251, 0.1);
+}
+
+.card-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.card-hover:hover::before {
+    opacity: 1;
+}
+
+/* ========================================
+   Enhanced Skill Badges
+   ======================================== */
+.skill-badge {
+    background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+    background-size: 200% 200%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: gradientShift 4s ease infinite;
+}
+
+.skill-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.8s ease;
+}
+
+.skill-badge:hover::before {
+    left: 100%;
+}
+
+.skill-badge:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* ========================================
+   Enhanced Animated Blobs
+   ======================================== */
+.blob {
+    background: linear-gradient(135deg, #667eea, #f093fb, #764ba2);
+    background-size: 200% 200%;
+    animation: morph 8s ease-in-out infinite, gradientX 10s ease infinite;
+    opacity: 0.15;
+    position: absolute;
+    filter: blur(80px);
+}
+
+@keyframes morph {
+    0%, 100% { 
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    25% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+        transform: translate3d(10%, 10%, 0) rotate(5deg);
+    }
+    50% { 
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+        transform: translate3d(0, -10%, 0) rotate(0deg);
+    }
+    75% {
+        border-radius: 70% 30% 40% 60% / 60% 40% 60% 30%;
+        transform: translate3d(-10%, 5%, 0) rotate(-5deg);
+    }
+}
+
+/* ========================================
+   Typing Animation
+   ======================================== */
+.typing-animation {
+    overflow: hidden;
+    border-right: 3px solid #667eea;
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; box-shadow: 0 0 10px rgba(102, 126, 234, 0.5); }
+    50% { border-color: #667eea; box-shadow: 0 0 20px rgba(102, 126, 234, 0.8); }
+}
+
+/* ========================================
+   Mouse Trail Enhancement
+   ======================================== */
+.mouse-trail {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, #667eea, #f093fb);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0);
+    animation: trail 1.2s linear forwards;
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.6);
+}
+
+@keyframes trail {
+    0% { 
+        opacity: 1; 
+        transform: scale(1) rotate(0deg);
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
+    }
+    50% {
+        transform: scale(0.5) rotate(180deg);
+    }
+    100% { 
+        opacity: 0; 
+        transform: scale(0) rotate(360deg);
+        box-shadow: 0 0 5px rgba(102, 126, 234, 0.2);
+    }
+}
+
+/* ========================================
+   Section Animations
+   ======================================== */
+.section-enter {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.section-enter.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ========================================
+   Enhanced Scrollbar
+   ======================================== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(15, 15, 35, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea, #f093fb);
+    border-radius: 10px;
+    border: 2px solid rgba(15, 15, 35, 0.5);
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #f093fb, #764ba2);
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+}
+
+/* ========================================
+   Enhanced Button Effects
+   ======================================== */
+button, .btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button::after, .btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+button:active::after, .btn:active::after {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+}
+
+/* ========================================
+   Image Hover Effects
+   ======================================== */
+img {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.group:hover img {
+    transform: scale(1.1) rotate(2deg);
+    filter: brightness(1.1) contrast(1.05);
+}
+
+/* ========================================
+   Loading Spinner Enhancement
+   ======================================== */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* ========================================
+   Floating Animation Enhancement
+   ======================================== */
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    33% { 
+        transform: translateY(-25px) rotate(2deg) scale(1.02);
+    }
+    66% { 
+        transform: translateY(15px) rotate(-2deg) scale(0.98);
+    }
+}
+
+/* ========================================
+   Pulse Glow Enhancement
+   ======================================== */
+@keyframes pulse-glow {
+    0%, 100% { 
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.4), 0 0 40px rgba(102, 126, 234, 0.2);
+    }
+    50% { 
+        box-shadow: 
+            0 0 40px rgba(102, 126, 234, 0.8),
+            0 0 60px rgba(240, 147, 251, 0.4),
+            0 0 80px rgba(118, 75, 162, 0.3);
+    }
+}
+
+/* ========================================
+   Form Input Enhancements
+   ======================================== */
+input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 
+        0 0 0 3px rgba(102, 126, 234, 0.2),
+        0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+/* ========================================
+   Selection Styling
+   ======================================== */
+::selection {
+    background: rgba(102, 126, 234, 0.4);
+    color: white;
+}
+
+::-moz-selection {
+    background: rgba(102, 126, 234, 0.4);
+    color: white;
+}
+
+/* ========================================
+   Smooth Scroll Behavior
+   ======================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ========================================
+   Responsive Enhancements
+   ======================================== */
+@media (max-width: 768px) {
+    .card-hover:hover {
+        transform: translateY(-10px);
+    }
+    
+    .blob {
+        filter: blur(60px);
+    }
+}
+
+/* ========================================
+   Additional Visual Effects
+   ======================================== */
+.glow-text {
+    text-shadow: 
+        0 0 10px rgba(102, 126, 234, 0.5),
+        0 0 20px rgba(102, 126, 234, 0.3),
+        0 0 30px rgba(102, 126, 234, 0.2);
+}
+
+.shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* ========================================
+   Particle Effects
+   ======================================== */
+.particle {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea, #f093fb);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.6);
+}
